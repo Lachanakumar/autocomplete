@@ -1,0 +1,22 @@
+<div class="autocompelte">
+    <h2>Angular Material Auto Complete</h2>
+    <p>
+        Autocomplete component from Angular Material, you need to follow these steps
+    </p>
+    <form class="example-form">
+        <mat-form-field class="autocomplete-textbox">
+            <mat-label>Select Country</mat-label>
+            <input type="text" placeholder="Pick one"  matInput [formControl]="myControl"
+                [matAutocomplete]="auto" class="autocompelte-text">
+            <ng-container *ngIf="showClearBtn">
+                <button type="button" mat-icon-button (click)="clear()" class="clear-button"><mat-icon>cancel</mat-icon></button>
+            </ng-container>
+
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </form>
+</div>
